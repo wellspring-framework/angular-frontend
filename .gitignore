@@ -1,0 +1,9 @@
+node_modules
+public
+.tmp
+.idea
+client/bower_components
+dist
+/angular-frontend.sublime-project
+/angular-frontend.sublime-workspace
+/e2e/
