@@ -63,7 +63,7 @@ module.exports = function (grunt) {
 	    constants: {
 	      ENV: {
 	        name: 'production',
-	        apiEndpoint: 'http://api.livesite.com'
+	        apiEndpoint: 'https://angularbackend.herokuapp.com/api/public/'
 	      }
 	    }
 	  }
@@ -636,6 +636,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'open', 'express-keepalive']);
+      //return grunt.task.run(['build', 'ngconstant:test', 'wait', 'open', 'express-keepalive']); 
     }
 
     if (target === 'debug') {
@@ -740,4 +741,8 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('heroku:development', 'clean less mincss');
+
+  grunt.registerTask('heroku:production', 'clean less mincss uglify');
 };

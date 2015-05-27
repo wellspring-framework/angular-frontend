@@ -9,6 +9,8 @@ angular.module('angularFrontendApp')
 
 	$scope.fields = ['id','name','email'];
 
+	$scope.sortableFields = ['false','true','true']; 
+
 	$scope.pageTitle = 'User';
 
 	$scope.pageSubTitle = 'List';
@@ -18,8 +20,6 @@ angular.module('angularFrontendApp')
 	$scope.baseUrl = '/users';
 
 	$scope.maxPages = 5;
-
-	$controller('PaginationCtrl', { $scope: $scope});
 
 	$controller('CrudCtrl', { $scope: $scope,$stateParams: $stateParams, CustomizedResource: resource });
 

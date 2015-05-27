@@ -43,7 +43,13 @@ A CRUD FrontEnd Application Example.
 	* yo angular-fullstack:factory customResource
 	* yo angular-fullstack:controller pagination
 	* yo angular-fullstack:controller crud
-	
+
+	To install the project in Heroku
+	* yo angular-fullstack:heroku
+
+### Example Project	
+
+[https://angularfrontend.herokuapp.com](https://angularfrontend.herokuapp.com)
 	
 ### Continuous Integration status
 

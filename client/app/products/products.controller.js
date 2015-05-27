@@ -9,6 +9,8 @@ angular.module('angularFrontendApp')
 
 	$scope.fields = ['id','name','price'];
 
+	$scope.sortableFields = ['true','true','false']; 
+
 	$scope.pageTitle = 'Product';
 
 	$scope.pageSubTitle = 'List';
@@ -18,8 +20,6 @@ angular.module('angularFrontendApp')
 	$scope.baseUrl = '/products'; 
 
 	$scope.maxPages = 4;
-
-	$controller('PaginationCtrl', { $scope: $scope});
 
 	$controller('CrudCtrl', { $scope: $scope,$stateParams: $stateParams, CustomizedResource: resource });
 
