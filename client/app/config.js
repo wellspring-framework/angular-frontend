@@ -2,6 +2,6 @@
 
  angular.module('config', [])
 
-.constant('ENV', {name:'production',apiEndpoint:'https://angularbackend.herokuapp.com/api/public/'})
+.constant('ENV', {name:'test',apiEndpoint:'http://192.168.1.139:8080'})
 
 ;

@@ -41,8 +41,11 @@ A CRUD FrontEnd Application Example.
 	* yo angular-fullstack:route products
 	* yo angular-fullstack:route users
 	* yo angular-fullstack:factory customResource
+	* yo angular-fullstack:factory tokenAuthInterceptor
+	* yo angular-fullstack:factory tokenStorage
 	* yo angular-fullstack:controller pagination
 	* yo angular-fullstack:controller crud
+	* yo angular-fullstack:controller auth
 
 	To install the project in Heroku
 	* yo angular-fullstack:heroku

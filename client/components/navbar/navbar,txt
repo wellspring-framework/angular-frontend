@@ -1,0 +1,26 @@
+  
+<!--
+    div#navbar-main.navbar-collapse.collapse(collapse='isCollapsed')
+      ul.nav.navbar-nav(ng-show="isAuthenticated()")
+        li(ng-repeat='item in menu', ng-class='{active: isActive(item.link)}')
+          a(ng-href='{{item.link}}') {{item.title}}
+
+      form.navbar-form.form-inline.pull-right(ng-if="!isAuthenticated()", role='form',method='post')
+        .form-group
+          label.sr-only(for='username') Email
+          input#username.form-control.input-sm(type='text', placeholder='Login',size='20',ng-model='username')
+        .form-group
+          label.sr-only(for='password') Password
+          input#password.form-control.input-sm(type='password', placeholder='Password',ng-model='password')
+        .checkbox
+          label
+            input(type='checkbox')
+            |  Remember me
+        |  
+        button.btn.btn-primary.btn-xs(type='button',ng-click="login(username,password)") Login
+
+      form.navbar-form.form-inline.pull-right(ng-if="isAuthenticated()", role='form')
+        Logged in as {{username}}
+        |  
+        button.btn.btn-primary.btn-xs(type='button',ng-click="logout()") Logout
+-->  

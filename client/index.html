@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title></title>
+    <title>Angular Frontend</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -36,7 +36,7 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-XXXXX-X');
+      ga('create', 'UA-63600269-1');
       ga('send', 'pageview');
     </script>
 
@@ -54,27 +54,32 @@
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/satellizer/satellizer.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
           <!-- injector:js -->
+          <script src="app/clients/clients.controller.js"></script>
+          <script src="app/clients/clients.js"></script>
           <script src="app/config.js"></script>
           <script src="app/customResource/customResource.service.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/products/products.controller.js"></script>
           <script src="app/products/products.js"></script>
-          <script src="app/users/users.controller.js"></script>
-          <script src="app/users/users.js"></script>
+          <script src="components/auth/auth.controller.js"></script>
           <script src="components/crud/crud.controller.js"></script>
           <script src="components/footer/footer.controller.js"></script>
           <script src="components/footer/footer.js"></script>
+          <script src="components/login/login.controller.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <script src="components/pagination/pagination.controller.js"></script>
           <script src="components/pagination/pagination.service.js"></script>
+          <script src="components/tokenAuthInterceptor/tokenAuthInterceptor.service.js"></script>
+          <script src="components/tokenStorage/tokenStorage.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 </body>

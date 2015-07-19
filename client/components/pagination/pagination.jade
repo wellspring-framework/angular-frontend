@@ -1,0 +1,78 @@
+.row
+	.col-md-12
+		.page-header
+			h4
+				| {{pageTitle}}
+				font(color='#777777')
+					span(style='font-size: 18px; line-height: 19px;')  {{pageSubTitle}}
+					span.pull-right
+						form(role='form')
+							a.btn.btn-default.glyphicon.glyphicon-plus(ng-href='{{newUrl}}',title='add new {{pageTitle}}') New
+.row
+	.col-md-12
+		.table-responsive
+			table.table.table-striped.table-bordered.table-condensed
+				thead 
+					tr(ng-if="entities")
+						th(ng-repeat='header in headers')
+							span.pull-left {{header}}
+							span.pull-right.glyphicon.glyphicon-sort(ng-if="sortableFields[$index] == 'true' && fields[$index] != sort",ng-click='sortBy(fields[$index])')
+							span.pull-right.glyphicon.glyphicon-sort-by-attributes(ng-if="sortableFields[$index] == 'true' && fields[$index] == sort && sortOrder == 'Asc'",ng-click='changeOrder()')
+							span.pull-right.glyphicon.glyphicon-sort-by-attributes-alt(ng-if="sortableFields[$index] == 'true' && fields[$index] == sort && sortOrder == 'Desc'",ng-click='changeOrder()')
+						th Actions
+				tfoot
+					tr(ng-if="entities")
+						th(ng-repeat='header in headers') {{header}}
+						th Actions
+					tr(ng-if="entities")
+						td(colspan='{{headers.length + 1}}')
+							span.pull-left Showing {{((page + 1) * size)-size + 1}} to {{((page + 1) * size) - size + numberOfElements}} of {{totalElements}} records.
+							span.pull-right
+									form(role='form')
+										span Page size:
+											select(ng-model='size',ng-change="reloadSize(size)",ng-options="option as option for option in sizes")
+					tr(ng-if="entities")
+						td(colspan='{{headers.length + 1}}',align='right')						
+							a.btn.btn-default.btn-xs.disabled(ng-if="page == 0")
+								i.icon-align-left.glyphicon.glyphicon-fast-backward
+
+							a.btn.btn-default.btn-xs(ng-click='first()',ng-if="page > 0")
+								i.icon-align-left.glyphicon.glyphicon-fast-backward							
+
+							a.btn.btn-default.btn-xs.disabled(ng-if="page == 0")
+								i.icon-align-left.glyphicon.glyphicon-step-backward
+
+							a.btn.btn-default.btn-xs(ng-click='prev()',ng-if="page > 0")
+								i.icon-align-left.glyphicon.glyphicon-step-backward							
+							
+							span(ng-repeat='pageIndex in pages')
+								a.btn.btn-default.btn-xs.active(ng-click='goTo(pageIndex)',ng-if="page == pageIndex"){{pageIndex + 1}}
+								a.btn.btn-default.btn-xs.btn-xs(ng-click='goTo(pageIndex)',ng-if="page != pageIndex"){{pageIndex + 1}}
+
+							a.btn.btn-default.btn-xs.disabled(ng-if="page ==lastPage")
+								i.icon-align-left.glyphicon.glyphicon-step-forward
+
+							a.btn.btn-default.btn-xs(ng-click='next()',ng-if="page < lastPage")
+								i.icon-align-left.glyphicon.glyphicon-step-forward
+
+							a.btn.btn-default.btn-xs.disabled(ng-if="page == lastPage")
+								i.icon-align-left.glyphicon.glyphicon-fast-forward
+
+							a.btn.btn-default.btn-xs(ng-click='last()',ng-if="page < lastPage")
+								i.icon-align-left.glyphicon.glyphicon-fast-forward
+									
+				tbody
+					tr(ng-repeat='entity in entities')
+						td(ng-repeat='field in fields'){{ entity[field] }}
+						td
+							a.btn.btn-primary.btn-xs(ng-href='{{baseUrl}}/{{entity.id}}/view',title='View')
+								i.icon-align-left.glyphicon.glyphicon-search
+							|  
+							a.btn.btn-danger.btn-xs(ng-click='delete(entity.name,entity)',title='Delete')
+								i.icon-align-left.glyphicon.glyphicon-remove
+					tr(ng-if="!entities")
+						td(colspan='{{headers.length + 1}}',align='center')
+							span.glyphicon.glyphicon-refresh.glyphicon-refresh-animate(ng-if="loading==true")
+							span Loading data...
+						td(colspan='{{headers.length + 1}}',ng-if="loading==false")
+							No records found.

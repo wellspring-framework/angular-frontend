@@ -19,5 +19,6 @@ div(ng-include='"components/navbar/navbar.html"')
 				label.col-sm-2.control-label(for='email') Email:
 				span#email {{entity.email}}
 	div
-		a.btn.btn-default.glyphicon.glyphicon-step-backward(href='/users/{{entity.id}}/edit') Edit
-		a.btn.btn-default.glyphicon.glyphicon-step-backward(href='/users') Back
+		a.btn.btn-default.glyphicon.glyphicon-step-backward(href='/clients/{{entity.id}}/edit') Edit
+		|  
+		a.btn.btn-default.glyphicon.glyphicon-step-backward(href='/clients') Back

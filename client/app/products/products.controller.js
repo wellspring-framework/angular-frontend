@@ -3,7 +3,7 @@
 angular.module('angularFrontendApp')
 .controller('ProductsCtrl',  function($scope, $controller, $stateParams, CustomResource, ENV) {
 
-	var resource = CustomResource(ENV.apiEndpoint + 'products/:id',   {id:'@id',page:'@page',size:'@size',sort:'@sort'}, 'products');
+	var resource = CustomResource(ENV.apiEndpoint + '/api/private/' +  'products/:id',   {id:'@id',page:'@page',size:'@size',sort:'@sort'}, 'products');
 
 	$scope.headers = ['#','Name','Price'];
 

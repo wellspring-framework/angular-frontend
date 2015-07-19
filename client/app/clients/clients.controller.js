@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('angularFrontendApp')
-  .controller('UsersCtrl',  function($scope, $controller, $stateParams, CustomResource, ENV) {
+  .controller('ClientsCtrl',  function($scope, $controller, $stateParams, CustomResource, ENV) {
 
-	var resource = CustomResource(ENV.apiEndpoint + 'users/:id',   {id:'@id',page:'@page',size:'@size',sort:'@sort'}, 'users');
+	var resource = CustomResource(ENV.apiEndpoint + '/api/private/' + 'clients/:id',   {id:'@id',page:'@page',size:'@size',sort:'@sort'}, 'clients');
 
 	$scope.headers = ['#','Name','Email'];
 
@@ -11,13 +11,13 @@ angular.module('angularFrontendApp')
 
 	$scope.sortableFields = ['false','true','true']; 
 
-	$scope.pageTitle = 'User';
+	$scope.pageTitle = 'Client';
 
 	$scope.pageSubTitle = 'List';
 
-	$scope.newUrl = '/users/new'; 
+	$scope.newUrl = '/clients/new'; 
 
-	$scope.baseUrl = '/users';
+	$scope.baseUrl = '/clients';
 
 	$scope.maxPages = 5;
 

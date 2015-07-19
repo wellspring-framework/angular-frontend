@@ -41,7 +41,7 @@ module.exports = function (grunt) {
 	    constants: {
 	      ENV: {
 	        name: 'development',
-	        apiEndpoint: 'http://localhost:8080/api/public/'
+	        apiEndpoint: 'http://localhost:8080'
 	      }
 	    }
 	  },
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
 	    constants: {
 	      ENV: {
 	        name: 'test',
-	        apiEndpoint: 'http://192.168.1.137:8080/api/public/'
+	        apiEndpoint: 'http://192.168.1.139:8080'
 	      }
 	    }
 	  },  
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
 	    constants: {
 	      ENV: {
 	        name: 'production',
-	        apiEndpoint: 'https://angularbackend.herokuapp.com/api/public/'
+	        apiEndpoint: 'https://angularbackend.herokuapp.com'
 	      }
 	    }
 	  }
